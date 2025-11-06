@@ -1,0 +1,1 @@
+Results aggregations and artifacts for both projects are stored here after running run_all.sh.
