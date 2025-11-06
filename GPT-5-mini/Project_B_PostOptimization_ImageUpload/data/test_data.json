@@ -1,0 +1,45 @@
+{
+  "tests": [
+    {
+      "id": "A1",
+      "description": "Small image under optimal conditions",
+      "file_size_mb": 0.5,
+      "bandwidth_mbps": 20,
+      "concurrent": 1,
+      "expected": "success"
+    },
+    {
+      "id": "A2",
+      "description": "Medium image under optimal conditions",
+      "file_size_mb": 5,
+      "bandwidth_mbps": 20,
+      "concurrent": 1,
+      "expected": "success"
+    },
+    {
+      "id": "A3",
+      "description": "Large image (200MB) - boundary",
+      "file_size_mb": 200,
+      "bandwidth_mbps": 5,
+      "concurrent": 1,
+      "expected": "success"
+    },
+    {
+      "id": "A4",
+      "description": "Malformed/corrupted image",
+      "file_size_mb": 1,
+      "corrupt": true,
+      "bandwidth_mbps": 20,
+      "concurrent": 1,
+      "expected": "failure"
+    },
+    {
+      "id": "A5",
+      "description": "Concurrent large uploads (3 users)",
+      "file_size_mb": 100,
+      "bandwidth_mbps": 2,
+      "concurrent": 3,
+      "expected": "success"
+    }
+  ]
+}
