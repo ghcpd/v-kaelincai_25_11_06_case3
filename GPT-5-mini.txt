@@ -1,0 +1,422 @@
+CCJJLL630: Role
+You are a software engineer responsible for implementing and testing the capabilities of AI models on the Performance optimization subtype within the Feature & improvement category.
+Your task is to provide two separate, complete Python projects:
+1.	Project A – Pre-Optimization (Slow Image Upload Implementation)
+A project that contains the original, slow image upload functionality that demonstrates performance issues during peak traffic times, where image uploads fail or need to be retried due to bottlenecks on the backend server when handling large image sizes or insufficient network bandwidth.
+2.	Project B – Post-Optimization (Optimized Image Upload Implementation)
+A project that contains the optimized version of the image upload functionality, addressing the performance bottleneck. This project will focus on reducing the image upload time, improving upload reliability during peak traffic, and ensuring smoother user experience even with large image files and high network latency.
+Each project must include its own source code, environment setup, automated tests, and execution scripts. All files must be generated, stored locally, and fully reproducible. Both projects should handle optimizations, edge cases, and correctness verification while providing measurable improvements in performance and user experience.
+________________________________________
+Title
+Evaluation of S180, S390, S430-v2, Claude Haiku 4.5, and GPT-5-mini on Feature & Improvement – Performance Optimization for Image Uploads
+________________________________________
+Description
+This experiment evaluates AI models' ability to optimize and improve the performance of an image upload feature in a social media platform. In Project A, the image upload functionality suffers from significant delays during high traffic times, especially when users upload large images. The slow processing of images and potential server overloads cause uploads to fail or retry, resulting in poor user experience. In Project B, the upload functionality is optimized to handle large image sizes more efficiently, reduces server load, and ensures smoother uploads even during peak traffic. The goal is to implement optimizations that significantly improve the upload speed and overall reliability of the image upload feature.
+Key objectives:
+1.	Replicate the original slow image upload functionality in Project A with performance bottlenecks.
+2.	Optimize the image upload functionality in Project B by reducing the processing time and handling large images and network latencies more efficiently.
+3.	Verify the improvements with automated performance tests and visual evidence.
+4.	Quantify the improvements in upload speed, success rate, and user experience.
+________________________________________
+Key Evaluation Criteria
+• Correctness of both pre- and post-optimization implementations (behavioral and functional).
+• Efficiency and performance improvement in the upload process (time and space complexity).
+• Handling of edge cases such as network failures, large images, and high traffic loads.
+• Comprehensive automated tests to verify performance and reliability across test cases.
+• Fully reproducible environment with one-command test execution and final comparison report.
+• Quantitative comparison: image upload success rate, upload latency, and performance improvements in peak traffic.
+________________________________________
+Requirements for the AI Model Output
+1.	Test Scenario & Description
+o	Describe the performance issue: Slow image uploads due to backend processing delays or insufficient bandwidth during peak usage times.
+o	Expected behavior after optimization: The optimized image upload should significantly reduce the time to upload large images, improve server throughput, and handle peak traffic without retries or failures.
+2.	Test Data Generation
+o	Generate at least five structured test cases saved in test_data.json, covering:
+• Normal cases: Uploading a small and medium-sized image under optimal conditions.
+• Edge/boundary cases: Uploading large images (e.g., 200MB, 500MB).
+• Invalid/malformed inputs: Corrupted or incomplete image files.
+• High-latency conditions: Simulating slow network speeds (e.g., 5Mbps, 2Mbps).
+• Concurrent uploads: Simulating multiple users uploading large images at the same time.
+o	For each test case, include test ID, input payload, expected status (success/failure), and time taken to upload.
+3.	Reproducible Environment
+o	Provide requirements.txt, setup.sh, or a Dockerfile for consistent test execution.
+o	Include instructions for environment setup: configuring the backend server, ensuring network throttling (e.g., simulating slow network speeds), and running both pre- and post-optimization services.
+4.	Test Code
+o	Generate executable Python test code that:
+a. Sends image upload requests to the server (both pre- and post-optimization).
+b. Captures upload time, success/failure status, and logs.
+c. Compares output to expected results and computes the performance metrics (e.g., latency, success rate).
+d. Reports success/failure for each test case.
+e. Generates machine-readable results (results_pre.json, results_post.json) and human-readable logs.
+5.	Execution Scripts
+o	Generate run_tests.sh for both projects to automate:
+a. Environment setup.
+b. Running tests for both pre- and post-optimization projects.
+c. Collecting results, logs, and performance metrics.
+o	Provide a top-level run_all.sh that:
+a. Runs Project A and Project B tests sequentially.
+b. Aggregates results_pre.json and results_post.json, and generates compare_report.md.
+6.	Expected Output
+o	For each test case, provide:
+• results_pre.json / results_post.json — metrics such as time taken, upload success rate, and performance improvements.
+• Log entries for each test, including upload status and error messages if any.
+• A comparison of pre/post performance metrics: upload time, success rates, and error rates.
+7.	Documentation / Explanation
+o	Provide a README.md file with:
+• Instructions on how to set up and run both pre- and post-optimization projects.
+• Explanation of optimizations implemented in Project B.
+• How to interpret test results and logs.
+• Any limitations or considerations (e.g., testing under simulated network conditions).
+________________________________________
+Deliverables (All files must be saved locally and organized into two project folders, plus shared artifacts)
+Project A – Pre-Optimization (Slow Upload) — Folder name: Project_A_PreOptimization_ImageUpload
+• src/ — Backend code for the original image upload functionality that demonstrates performance issues (e.g., upload.py, image_processor.py).
+• data/ — test_data.json with ≥5 test cases and input fixtures.
+• tests/ — Test harness for pre-optimization behavior (test_pre_optimization.py).
+• logs/ — Logs of execution for Project A (log_pre.txt).
+• performance/ — Timing and latency files for the pre-optimization process (time_pre.txt).
+• requirements.txt — Dependencies for Project A.
+• setup.sh — Environment setup script.
+• run_tests.sh — One-command script to run Project A tests and collect artifacts.
+Project B – Post-Optimization (Fast Upload) — Folder name: Project_B_PostOptimization_ImageUpload
+• src/ — Backend code for the optimized image upload functionality (e.g., upload_optimized.py, image_processor_optimized.py).
+• data/ — test_data.json (same fixtures as Project A).
+• tests/ — Test harness for post-optimization behavior (test_post_optimization.py).
+• logs/ — Logs of execution for Project B (log_post.txt).
+• performance/ — Timing and latency files for the post-optimization process (time_post.txt).
+• requirements.txt — Dependencies for Project B.
+• setup.sh — Environment setup script.
+• run_tests.sh — One-command script to run Project B tests and collect artifacts.
+Shared Artifacts (repo root)
+• test_data.json — Canonical set of ≥5 structured test cases (normal, boundary, malformed, concurrency).
+• compare_report.md — Comparison report with pre/post performance metrics, success rate, and visualized improvements.
+• run_all.sh — Master script that runs Project A and Project B tests, aggregates results, and generates the final comparison report.
+• README.md — Instructions and documentation.
+________________________________________
+Goal
+Produce two fully reproducible project folders demonstrating a concrete Performance Optimization issue (slow image uploads) and its remediation. Provide automated performance tests that prove the optimization reduces upload times and improves reliability, with visual evidence (timing data, success rates). Produce a comparison report that quantifies the improvements and offers recommendations for further optimizations.
+
+
+GitHub Copilot: I'll create a clear plan (todo list) and then add the two project folders and shared files. I'll mark the first task as in-progress before making file changes. I'm writing the todo list to track the multi-step work. I'll create concise, actionable steps and mark the first as in-progress. 
+
+Created 6 todos
+
+Now I'll create the project folders and all required files (servers, tests, scripts, and shared artifacts). This will add many new files. 
+
+Using "Apply Patch"
+
+Now I'll add all project files and shared artifacts to the workspace (creating servers, processors, tests, data, scripts, and README). This will create many files. 
+
+Using "Apply Patch"
+
+
+```
+
+```
+Next I'll add the rest of Project A files (server, tests, data, scripts, requirements). I'll create them under c:/chatWorkspace. 
+
+Using "Apply Patch"
+
+
+```
+
+```
+Now I'll add Project A tests, test data, setup scripts, requirements, and helper files. 
+
+Using "Apply Patch"
+
+
+```
+
+```
+I'll add tests and scripts for Project A. 
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+Project A done. I'll mark that todo as completed and start Project B. 
+
+Starting: *Create Project B files (post-optimization)* (2/6)
+
+Next I'll create Project B files implementing optimized upload (chunked uploads, concurrent processing, asynchronous work queue) plus tests and scripts. 
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+Project B files created. I'll mark Project B as completed in the todo list and create shared artifacts including canonical test_data.json, run_all.sh, compare_report generation script, and README. 
+
+Starting: *Create shared artifacts and test_data* (3/6)
+
+Next I'll add the repo-level `test_data.json`, `run_all.sh`, `compare_report.md` generator, and `README.md`. I'll create scripts that run both projects and produce compare_report.md. 
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+I'll mark shared artifacts task as completed and proceed to run basic validations (static checks). I won't run the heavy tests automatically to avoid long-run processes without confirmation. 
+
+Continue to iterate?
+[object Object]
+
+Made changes.
+
+CCJJLL630: @agent Continue: "Continue to iterate?"
+
+GitHub Copilot: Completed: *Create shared artifacts and test_data* (3/6)
+
+Now I'll add PowerShell run scripts for Windows and update the todo list to mark tests and scripts as completed. This adds three new .ps1 files. 
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Using "Apply Patch"
+
+
+```
+
+```
+I'll mark remaining todos as completed now that run scripts and README are in place. 
+
+Completed: *Add automated tests for both projects* (4/6)
+
+Progress update: created both project folders, source servers, processors, tests, test data, run scripts, and shared artifacts.
+
+What I added (concise)
+- Project A (pre-optimization) at Project_A_PreOptimization_ImageUpload
+  - `src/upload.py` — single-threaded slow upload endpoint (blocking processing).
+  - `src/image_processor.py` — simulated slow CPU-bound processing.
+  - `data/test_data.json` — test cases (5+ cases).
+  - `tests/test_pre_optimization.py` — test harness that posts payloads, records time/status.
+  - `requirements.txt`, `setup.sh`, `run_tests.sh`, `run_tests.ps1`
+  - `logs/log_pre.txt`, `performance/results_pre.json` (created at test run)
+
+- Project B (post-optimization) at Project_B_PostOptimization_ImageUpload
+  - `src/upload_optimized.py` — chunked upload handling + background worker pool.
+  - `src/image_processor_optimized.py` — simulated faster, parallel processing.
+  - `data/test_data.json` (mirrors canonical test cases).
+  - `tests/test_post_optimization.py` — chunked client test harness.
+  - `requirements.txt`, `setup.sh`, `run_tests.sh`, `run_tests.ps1`
+  - `logs/log_post.txt`, `performance/results_post.json` (created at test run)
+
+- Shared repo artifacts (root)
+  - test_data.json — canonical test cases used in both projects.
+  - run_all.sh and run_all.ps1 — run both projects tests sequentially.
+  - compare_results.py — aggregates `results_pre.json` and `results_post.json` into `compare_report.md`.
+  - `compare_report.md` — generated by compare_results.py (template written after tests).
+  - README.md — instructions and brief explanation.
+
+How the two implementations differ (short)
+- Project A: single-threaded Flask dev server; the server writes the uploaded bytes and then calls a blocking `process_image` function whose simulated time scales linearly with size (0.15s/MB). This demonstrates a backend bottleneck under large files or concurrency.
+- Project B: supports client-side chunked uploads (server assembles parts). Uses a ThreadPoolExecutor to simulate parallelized image processing and responds faster during chunk receipt; processing is done in background worker(s) which reduces per-request blocking time and improves throughput. Simulated processing cost is much lower (0.04s/MB) and split into chunks to model parallelization.
+
+Test scenarios included (in test_data.json, also copied to each project)
+- A1: small image (0.5 MB) — expected success
+- A2: medium image (5 MB) — expected success
+- A3: large image (200 MB) — boundary; pre-expected failure_or_slow, post-expected success
+- A4: malformed/corrupted image — expected failure
+- A5: concurrent large uploads (3 users, 100 MB each) — stress/concurrency test
+
+How to run (Windows PowerShell)
+- Option 1 (PowerShell): call the root script:
+  - Run:
+    ```powershell
+    .\run_all.ps1
+    ```
+  - This starts Project A server, runs pre tests, stops server, then runs Project B server and tests, and finally creates `compare_report.md`.
+
+- Option 2 (Git Bash / bash): call the bash script:
+  - Run:
+    ```bash
+    ./run_all.sh
+    ```
+
+Notes about environment/setup
+- Both projects depend on `flask` and `requests`. Install via:
+  - `pip install -r Project_A_PreOptimization_ImageUpload/requirements.txt`
+  - `pip install -r Project_B_PostOptimization_ImageUpload/requirements.txt`
+- The included `setup.sh` scripts create a venv and install dependencies on Unix-like shells. On Windows PowerShell, create/activate a venv manually or run the `pip install` commands above.
+- The servers bind to ports:
+  - Project A: `http://0.0.0.0:8000`
+  - Project B: `http://0.0.0.0:8001`
+
+Test outputs and artifacts
+- Each tests script writes:
+  - `Project_A_PreOptimization_ImageUpload/performance/results_pre.json`
+  - `Project_B_PostOptimization_ImageUpload/performance/results_post.json`
+- Logs also written to:
+  - log_pre.txt
+  - log_post.txt
+- After running `run_all`, call:
+  - `compare_report.md` — summary comparing success counts and average times; produced by compare_results.py.
+
+Files created (paths)
+- c:\chatWorkspace\Project_A_PreOptimization_ImageUpload/...
+  - src/image_processor.py, src/upload.py
+  - data/test_data.json
+  - tests/test_pre_optimization.py
+  - requirements.txt, setup.sh, run_tests.sh, run_tests.ps1
+  - logs/log_pre.txt, performance/results_pre.json (written at test-run)
+- c:\chatWorkspace\Project_B_PostOptimization_ImageUpload/...
+  - src/image_processor_optimized.py, src/upload_optimized.py
+  - data/test_data.json
+  - tests/test_post_optimization.py
+  - requirements.txt, setup.sh, run_tests.sh, run_tests.ps1
+  - logs/log_post.txt, performance/results_post.json (written at test-run)
+- c:\chatWorkspace\
+  - test_data.json
+  - run_all.sh, run_all.ps1
+  - compare_results.py
+  - compare_report.md (written after running tests)
+  - README.md
+
+Limitations and considerations
+- The "image files" in tests are generated as repeated bytes; they are not valid image formats. This is intentional to focus on upload/processing performance rather than image decoding. Test A4 simulates corruption by truncation.
+- Network throttling (bandwidth/latency) is suggested in test metadata but not enforced by these scripts. To simulate network constraints you can:
+  - Use OS/network tools (e.g., `netsh` on Windows, `tc` on Linux) or run tests under a network emulator (e.g., `clumsy` on Windows).
+  - Alternatively, adjust the client to sleep to mimic slower bandwidth; the test payloads include `bandwidth_mbps` fields for future extension.
+- The servers are simple Flask dev servers, not production-grade. For realistic throughput testing, run via `gunicorn`/WSGI with multiple workers or use a real CDN/proxy.
+
+Next steps I can do for you
+- Run the full tests here automatically (they will generate large in-memory payloads — e.g., 200 MB) if you want me to execute them now. Note this will consume memory and time.
+- Add network throttling emulation into the test harness (client-side throttling) so the `bandwidth_mbps` field is honored and results are reproducible without OS tools.
+- Replace synthetic payloads with actual image files stored in `data/fixtures` if you want image-format correctness tests.
+- Improve the comparison report with charts (e.g., using matplotlib) and additional metrics (percentiles, throughput).
+
+Would you like me to run the tests now and generate the `compare_report.md`? If yes, tell me whether to:
+- proceed with full test suite including large payloads (may take considerable time and memory), or
+- run a reduced-size quick smoke test (scaled down sizes) to validate the flow quickly.
+
+Made changes.
