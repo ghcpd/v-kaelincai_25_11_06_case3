@@ -1,0 +1,100 @@
+{
+  "test_cases": [
+    {
+      "test_id": "TC_001",
+      "name": "Normal - Small Image Upload",
+      "description": "Upload a small image (500KB) under optimal network conditions",
+      "image_size_bytes": 512000,
+      "image_format": "jpg",
+      "network_latency_ms": 10,
+      "network_bandwidth_mbps": 100,
+      "concurrent_uploads": 1,
+      "expected_status": "success",
+      "expected_max_time_seconds": 5
+    },
+    {
+      "test_id": "TC_002",
+      "name": "Normal - Medium Image Upload",
+      "description": "Upload a medium image (5MB) under good network conditions",
+      "image_size_bytes": 5242880,
+      "image_format": "jpg",
+      "network_latency_ms": 20,
+      "network_bandwidth_mbps": 50,
+      "concurrent_uploads": 1,
+      "expected_status": "success",
+      "expected_max_time_seconds": 10
+    },
+    {
+      "test_id": "TC_003",
+      "name": "Edge Case - Large Image Upload",
+      "description": "Upload a large image (50MB) with moderate network conditions",
+      "image_size_bytes": 52428800,
+      "image_format": "jpg",
+      "network_latency_ms": 50,
+      "network_bandwidth_mbps": 20,
+      "concurrent_uploads": 1,
+      "expected_status": "success",
+      "expected_max_time_seconds": 30
+    },
+    {
+      "test_id": "TC_004",
+      "name": "Edge Case - Very Large Image with High Latency",
+      "description": "Upload a very large image (100MB) with high latency and low bandwidth (5Mbps)",
+      "image_size_bytes": 104857600,
+      "image_format": "jpg",
+      "network_latency_ms": 100,
+      "network_bandwidth_mbps": 5,
+      "concurrent_uploads": 1,
+      "expected_status": "success",
+      "expected_max_time_seconds": 60
+    },
+    {
+      "test_id": "TC_005",
+      "name": "Concurrent Uploads - 5 Medium Images",
+      "description": "Simulate 5 concurrent users uploading medium images (5MB each) during peak traffic",
+      "image_size_bytes": 5242880,
+      "image_format": "jpg",
+      "network_latency_ms": 50,
+      "network_bandwidth_mbps": 10,
+      "concurrent_uploads": 5,
+      "expected_status": "success",
+      "expected_max_time_seconds": 45
+    },
+    {
+      "test_id": "TC_006",
+      "name": "Concurrent Uploads - 10 Small Images",
+      "description": "Simulate 10 concurrent users uploading small images (1MB each) during high traffic",
+      "image_size_bytes": 1048576,
+      "image_format": "jpg",
+      "network_latency_ms": 75,
+      "network_bandwidth_mbps": 8,
+      "concurrent_uploads": 10,
+      "expected_status": "success",
+      "expected_max_time_seconds": 40
+    },
+    {
+      "test_id": "TC_007",
+      "name": "Network Stress - Extremely Slow Connection",
+      "description": "Upload a 20MB image with extremely slow network (2Mbps) and high latency",
+      "image_size_bytes": 20971520,
+      "image_format": "jpg",
+      "network_latency_ms": 200,
+      "network_bandwidth_mbps": 2,
+      "concurrent_uploads": 1,
+      "expected_status": "success",
+      "expected_max_time_seconds": 120
+    },
+    {
+      "test_id": "TC_008",
+      "name": "Invalid - Corrupted Image",
+      "description": "Upload a corrupted/malformed image file",
+      "image_size_bytes": 1024,
+      "image_format": "corrupted",
+      "network_latency_ms": 10,
+      "network_bandwidth_mbps": 100,
+      "concurrent_uploads": 1,
+      "expected_status": "failure",
+      "expected_max_time_seconds": 5
+    }
+  ]
+}
