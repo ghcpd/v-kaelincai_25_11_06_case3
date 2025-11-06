@@ -1,0 +1,7 @@
+[
+  {"id":"t1","input_payload":{"file_path":"shared_data/small.jpg"},"expected_status":"success","description":"small image under ideal conditions"},
+  {"id":"t2","input_payload":{"file_path":"shared_data/medium.jpg"},"expected_status":"success","description":"medium image under ideal conditions"},
+  {"id":"t3","input_payload":{"file_path":"shared_data/large_200mb.bin"},"expected_status":"failure","description":"very large image that causes slow processing"},
+  {"id":"t4","input_payload":{"file_path":"shared_data/corrupt.jpg"},"expected_status":"failure","description":"corrupted file"},
+  {"id":"t5","input_payload":{"file_path":"shared_data/large_concurrent_500mb.bin"},"expected_status":"failure","description":"concurrent large uploads under peak traffic"}
+]
