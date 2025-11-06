@@ -1,0 +1,8 @@
+[
+  {"id":"t1","name":"small_image","size_mb":0.05,"description":"Small image under normal conditions","simulate_mbps":50,"expected_status":"success"},
+  {"id":"t2","name":"medium_image","size_mb":1.0,"description":"Medium image under normal conditions","simulate_mbps":20,"expected_status":"success"},
+  {"id":"t3","name":"large_image_200mb","size_mb":200.0,"description":"Large image - boundary","simulate_mbps":10,"expected_status":"success"},
+  {"id":"t4","name":"corrupt_image","size_mb":0.02,"description":"Malformed image data","simulate_mbps":50,"expected_status":"failure"},
+  {"id":"t5","name":"high_latency","size_mb":5.0,"description":"High latency/speed test","simulate_mbps":2,"expected_status":"success"},
+  {"id":"t6","name":"concurrent_uploads","size_mb":20.0,"description":"Multiple concurrent uploads","simulate_mbps":10,"expected_status":"success"}
+]
