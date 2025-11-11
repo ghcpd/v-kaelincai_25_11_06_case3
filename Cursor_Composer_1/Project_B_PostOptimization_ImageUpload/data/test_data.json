@@ -1,0 +1,73 @@
+{
+  "test_cases": [
+    {
+      "test_id": "TC001",
+      "description": "Small image upload (1MB) - Normal case",
+      "image_size_mb": 1,
+      "image_type": "normal",
+      "expected_status": "success",
+      "category": "normal"
+    },
+    {
+      "test_id": "TC002",
+      "description": "Medium image upload (5MB) - Normal case",
+      "image_size_mb": 5,
+      "image_type": "normal",
+      "expected_status": "success",
+      "category": "normal"
+    },
+    {
+      "test_id": "TC003",
+      "description": "Large image upload (50MB) - Boundary case",
+      "image_size_mb": 50,
+      "image_type": "large",
+      "expected_status": "success",
+      "category": "boundary"
+    },
+    {
+      "test_id": "TC004",
+      "description": "Corrupted image upload - Invalid input",
+      "image_size_mb": 0.1,
+      "image_type": "corrupted",
+      "expected_status": "failure",
+      "category": "invalid"
+    },
+    {
+      "test_id": "TC005",
+      "description": "Very large image upload (100MB) - Boundary case",
+      "image_size_mb": 100,
+      "image_type": "large",
+      "expected_status": "success",
+      "category": "boundary"
+    },
+    {
+      "test_id": "TC006",
+      "description": "Extremely large image upload (200MB) - Edge case",
+      "image_size_mb": 200,
+      "image_type": "large",
+      "expected_status": "success",
+      "category": "edge"
+    },
+    {
+      "test_id": "TC007",
+      "description": "Concurrent upload simulation - Multiple small images",
+      "image_size_mb": 2,
+      "image_type": "normal",
+      "expected_status": "success",
+      "category": "concurrency",
+      "concurrent_count": 5
+    }
+  ],
+  "metadata": {
+    "description": "Test cases for image upload performance evaluation",
+    "created": "2024",
+    "categories": {
+      "normal": "Standard upload scenarios under optimal conditions",
+      "boundary": "Large file uploads testing system limits",
+      "edge": "Extreme cases pushing system boundaries",
+      "invalid": "Malformed or corrupted input handling",
+      "concurrency": "Multiple simultaneous uploads"
+    }
+  }
+}
+
