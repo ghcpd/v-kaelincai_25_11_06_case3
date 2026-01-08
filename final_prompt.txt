@@ -1,0 +1,97 @@
+Role
+You are a software engineer responsible for implementing and testing the capabilities of AI models on the Performance optimization subtype within the Feature & improvement category.
+Your task is to provide two separate, complete Python projects:
+1.	Project A – Pre-Optimization (Slow Image Upload Implementation)
+A project that contains the original, slow image upload functionality that demonstrates performance issues during peak traffic times, where image uploads fail or need to be retried due to bottlenecks on the backend server when handling large image sizes or insufficient network bandwidth.
+2.	Project B – Post-Optimization (Optimized Image Upload Implementation)
+A project that contains the optimized version of the image upload functionality, addressing the performance bottleneck. This project will focus on reducing the image upload time, improving upload reliability during peak traffic, and ensuring smoother user experience even with large image files and high network latency.
+Each project must include its own source code, environment setup, automated tests, and execution scripts. All files must be generated, stored locally, and fully reproducible. Both projects should handle optimizations, edge cases, and correctness verification while providing measurable improvements in performance and user experience.
+________________________________________
+Title
+Evaluation of S180, S390, S430-v2, Claude Haiku 4.5, and GPT-5-mini on Feature & Improvement – Performance Optimization for Image Uploads
+________________________________________
+Description
+This experiment evaluates AI models' ability to optimize and improve the performance of an image upload feature in a social media platform. In Project A, the image upload functionality suffers from significant delays during high traffic times, especially when users upload large images. The slow processing of images and potential server overloads cause uploads to fail or retry, resulting in poor user experience. In Project B, the upload functionality is optimized to handle large image sizes more efficiently, reduces server load, and ensures smoother uploads even during peak traffic. The goal is to implement optimizations that significantly improve the upload speed and overall reliability of the image upload feature.
+Key objectives:
+1.	Replicate the original slow image upload functionality in Project A with performance bottlenecks.
+2.	Optimize the image upload functionality in Project B by reducing the processing time and handling large images and network latencies more efficiently.
+3.	Verify the improvements with automated performance tests and visual evidence.
+4.	Quantify the improvements in upload speed, success rate, and user experience.
+________________________________________
+Key Evaluation Criteria
+• Correctness of both pre- and post-optimization implementations (behavioral and functional).
+• Efficiency and performance improvement in the upload process (time and space complexity).
+• Handling of edge cases such as network failures, large images, and high traffic loads.
+• Comprehensive automated tests to verify performance and reliability across test cases.
+• Fully reproducible environment with one-command test execution and final comparison report.
+• Quantitative comparison: image upload success rate, upload latency, and performance improvements in peak traffic.
+________________________________________
+Requirements for the AI Model Output
+1.	Test Scenario & Description
+o	Describe the performance issue: Slow image uploads due to backend processing delays or insufficient bandwidth during peak usage times.
+o	Expected behavior after optimization: The optimized image upload should significantly reduce the time to upload large images, improve server throughput, and handle peak traffic without retries or failures.
+2.	Test Data Generation
+o	Generate at least five structured test cases saved in test_data.json, covering:
+• Normal cases: Uploading a small and medium-sized image under optimal conditions.
+• Edge/boundary cases: Uploading large images (e.g., 200MB, 500MB).
+• Invalid/malformed inputs: Corrupted or incomplete image files.
+• High-latency conditions: Simulating slow network speeds (e.g., 5Mbps, 2Mbps).
+• Concurrent uploads: Simulating multiple users uploading large images at the same time.
+o	For each test case, include test ID, input payload, expected status (success/failure), and time taken to upload.
+3.	Reproducible Environment
+o	Provide requirements.txt, setup.sh, or a Dockerfile for consistent test execution.
+o	Include instructions for environment setup: configuring the backend server, ensuring network throttling (e.g., simulating slow network speeds), and running both pre- and post-optimization services.
+4.	Test Code
+o	Generate executable Python test code that:
+a. Sends image upload requests to the server (both pre- and post-optimization).
+b. Captures upload time, success/failure status, and logs.
+c. Compares output to expected results and computes the performance metrics (e.g., latency, success rate).
+d. Reports success/failure for each test case.
+e. Generates machine-readable results (results_pre.json, results_post.json) and human-readable logs.
+5.	Execution Scripts
+o	Generate run_tests.sh for both projects to automate:
+a. Environment setup.
+b. Running tests for both pre- and post-optimization projects.
+c. Collecting results, logs, and performance metrics.
+o	Provide a top-level run_all.sh that:
+a. Runs Project A and Project B tests sequentially.
+b. Aggregates results_pre.json and results_post.json, and generates compare_report.md.
+6.	Expected Output
+o	For each test case, provide:
+• results_pre.json / results_post.json — metrics such as time taken, upload success rate, and performance improvements.
+• Log entries for each test, including upload status and error messages if any.
+• A comparison of pre/post performance metrics: upload time, success rates, and error rates.
+7.	Documentation / Explanation
+o	Provide a README.md file with:
+• Instructions on how to set up and run both pre- and post-optimization projects.
+• Explanation of optimizations implemented in Project B.
+• How to interpret test results and logs.
+• Any limitations or considerations (e.g., testing under simulated network conditions).
+________________________________________
+Deliverables (All files must be saved locally and organized into two project folders, plus shared artifacts)
+Project A – Pre-Optimization (Slow Upload) — Folder name: Project_A_PreOptimization_ImageUpload
+• src/ — Backend code for the original image upload functionality that demonstrates performance issues (e.g., upload.py, image_processor.py).
+• data/ — test_data.json with ≥5 test cases and input fixtures.
+• tests/ — Test harness for pre-optimization behavior (test_pre_optimization.py).
+• logs/ — Logs of execution for Project A (log_pre.txt).
+• performance/ — Timing and latency files for the pre-optimization process (time_pre.txt).
+• requirements.txt — Dependencies for Project A.
+• setup.sh — Environment setup script.
+• run_tests.sh — One-command script to run Project A tests and collect artifacts.
+Project B – Post-Optimization (Fast Upload) — Folder name: Project_B_PostOptimization_ImageUpload
+• src/ — Backend code for the optimized image upload functionality (e.g., upload_optimized.py, image_processor_optimized.py).
+• data/ — test_data.json (same fixtures as Project A).
+• tests/ — Test harness for post-optimization behavior (test_post_optimization.py).
+• logs/ — Logs of execution for Project B (log_post.txt).
+• performance/ — Timing and latency files for the post-optimization process (time_post.txt).
+• requirements.txt — Dependencies for Project B.
+• setup.sh — Environment setup script.
+• run_tests.sh — One-command script to run Project B tests and collect artifacts.
+Shared Artifacts (repo root)
+• test_data.json — Canonical set of ≥5 structured test cases (normal, boundary, malformed, concurrency).
+• compare_report.md — Comparison report with pre/post performance metrics, success rate, and visualized improvements.
+• run_all.sh — Master script that runs Project A and Project B tests, aggregates results, and generates the final comparison report.
+• README.md — Instructions and documentation.
+________________________________________
+Goal
+Produce two fully reproducible project folders demonstrating a concrete Performance Optimization issue (slow image uploads) and its remediation. Provide automated performance tests that prove the optimization reduces upload times and improves reliability, with visual evidence (timing data, success rates). Produce a comparison report that quantifies the improvements and offers recommendations for further optimizations.
